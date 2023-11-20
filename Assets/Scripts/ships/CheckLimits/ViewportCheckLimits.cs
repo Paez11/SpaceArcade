@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace ships
+namespace Ships.CheckLimits
 {
-    public class ViewportCheckLimits : CheckLimits
+    public class ViewportCheckLimits : CheckLimit
     {
         private readonly Transform _transform;
         private readonly Camera _camera;

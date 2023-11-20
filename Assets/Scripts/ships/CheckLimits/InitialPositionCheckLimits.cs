@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace ships
+namespace Ships.CheckLimits
 {
-    public class InitialPositionCheckLimits : CheckLimits
+    public class InitialPositionCheckLimits : CheckLimit
     {
         private readonly Transform _transform;
         private readonly Vector3 _initialPosition;

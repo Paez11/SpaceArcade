@@ -1,13 +1,17 @@
 using System;
+using Inputs;
+using Input = Inputs.Input;
+using Ships.CheckLimits;
 using UnityEngine;
 
-namespace ships
+namespace Ships
 {
     public class ShipInstaller : MonoBehaviour
     {
         [SerializeField] private bool _useIA;
         [SerializeField] private bool _useJoystick;
         [SerializeField] private Joystick _joystick;
+        [SerializeField] private JoyButton _joybutton;
         [SerializeField] private Ship _ship;
 
         private void Awake() 
@@ -15,7 +19,7 @@ namespace ships
             _ship.Configure(GetInput(), GetCheckLimitsStrategy());
         }
 
-        private CheckLimits GetCheckLimitsStrategy()
+        private CheckLimit GetCheckLimitsStrategy()
         {
             if(_useIA)
                 return new InitialPositionCheckLimits(_ship.transform, 10f);
@@ -30,9 +34,10 @@ namespace ships
             }
             if(_useJoystick)
             {
-                return new JoystickInputAdapter(_joystick);
+                return new JoystickInputAdapter(_joystick, _joybutton);
             }
             Destroy(_joystick.gameObject);
+            Destroy(_joybutton.gameObject);
             return new UnityInputAdapter();
         }
     }

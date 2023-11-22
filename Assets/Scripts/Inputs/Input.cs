@@ -6,5 +6,6 @@ namespace Inputs
     {
         Vector2 GetDirection();
         bool IsFireActionPressed();
+        bool IsMissileActionPressed();
     }
 }

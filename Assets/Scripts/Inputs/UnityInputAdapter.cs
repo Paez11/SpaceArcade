@@ -16,5 +16,10 @@ namespace Inputs
         {
             return UnityEngine.Input.GetButton("Fire1");
         }
+
+        public bool IsMissileActionPressed()
+        {
+            return UnityEngine.Input.GetButton("Fire2");
+        }
     }
 }

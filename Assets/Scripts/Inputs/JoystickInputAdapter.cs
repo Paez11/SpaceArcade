@@ -21,5 +21,10 @@ namespace Inputs
         {
             return _joyButton.IsPressed;
         }
+
+        public bool IsMissileActionPressed()
+        {
+            throw new System.NotImplementedException();
+        }
     } 
 }

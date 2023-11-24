@@ -129,10 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRateInSeconds: 0.3
   _missileFireRateInSeconds: 2
-  _projectilePrefabs:
-  - {fileID: 7152959438456488271, guid: f16fcb919d03ea54f8defa2a7117fed1, type: 3}
-  - {fileID: 7152959438456488271, guid: 1ddaa27b25404ef4fbe272aac5be287a, type: 3}
   _projectileSpawnPosition: {fileID: 956289037175133685}
+  _defaultProjectileId: {fileID: 11400000, guid: b66130ae919a4e045998ff33ff3e7c93, type: 2}
+  _projectileConfiguration: {fileID: 11400000, guid: e7585eb756a373841b9b10eb72d6c5e0, type: 2}
 --- !u!1 &6893481355326610467
 GameObject:
   m_ObjectHideFlags: 0

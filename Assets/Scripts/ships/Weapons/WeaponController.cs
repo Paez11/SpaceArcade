@@ -11,15 +11,23 @@ namespace Ships.Weapons
         private float _remainingSecondsToBeAbleShootMissile;
         [SerializeField] private float _fireRateInSeconds;
         [SerializeField] private float _missileFireRateInSeconds;
-        [SerializeField] private Projectile[] _projectilePrefabs;
         [SerializeField] private Transform _projectileSpawnPosition;
 
         private string _activeProjectileId;
+        [SerializeField] private ProjectileId _defaultProjectileId;
+        private ProjectileFactory _projectileFactory;
+        [SerializeField] private ProjectilesConfiguration _projectileConfiguration;
+
+        private void Awake() 
+        {
+            var instance = Instantiate(_projectileConfiguration);
+            _projectileFactory = new ProjectileFactory(instance);
+        }
 
         public void Configure(Ship ship)
         {
             _ship = ship;
-            _activeProjectileId = "Projectile1";
+            _activeProjectileId = _defaultProjectileId.Value;
         }
         internal void TryShoot()
         {
@@ -39,14 +47,13 @@ namespace Ships.Weapons
         private void ShootMissile()
         {
             _remainingSecondsToBeAbleShootMissile = _missileFireRateInSeconds;
-            Instantiate(_projectilePrefabs[1],_projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
+            Instantiate(_defaultProjectileId,_projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
         }
 
         private void Shoot()
         {
-            var prefab = _projectilePrefabs.First(projectile => projectile.Id.Equals(_activeProjectileId));
+            var projectile = _projectileFactory.Create(_activeProjectileId, _projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
             _remainingSecondsToBeAbleShoot = _fireRateInSeconds;
-            Instantiate(prefab, _projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
         }
     }
 }

@@ -7,9 +7,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6db9553b201870498bb6c76eecd3feb, type: 3}
   m_Name: ProjectilesConfiguration
   m_EditorClassIdentifier: 
-  _projectilePrefabs: []
+  _projectilePrefabs:
+  - {fileID: 7426938055442497130, guid: f16fcb919d03ea54f8defa2a7117fed1, type: 3}
+  - {fileID: 6113786462782838240, guid: 1ddaa27b25404ef4fbe272aac5be287a, type: 3}

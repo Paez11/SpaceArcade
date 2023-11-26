@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 658271236894630836}
   - component: {fileID: 8253160487277248536}
   - component: {fileID: 5644719986084602143}
-  - component: {fileID: 7152959438456488271}
+  - component: {fileID: 6113786462782838240}
+  - component: {fileID: 931127408245707290}
   m_Layer: 0
   m_Name: Projectile2
   m_TagString: Untagged
@@ -113,7 +114,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7152959438456488271
+--- !u!114 &6113786462782838240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229477534431941845}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51125d1b24322474586a8e61e0a82701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: {fileID: 11400000, guid: 8b4933273751f634eaaf576c549689d0, type: 2}
+  _rigidbody2D: {fileID: 5644719986084602143}
+  _speed: 20
+--- !u!114 &931127408245707290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +138,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229477534431941845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9768c151d8cb2b54e86106657f2b1d60, type: 3}
+  m_Script: {fileID: 11500000, guid: 86797f28f0050ee48a7d8b97f414c604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _id: {fileID: 11400000, guid: 8b4933273751f634eaaf576c549689d0, type: 2}
   _rigidbody2D: {fileID: 5644719986084602143}
   _speed: 5
+  _amplitude: 2
+  frequency: 6

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 3185072168484008577}
   _weaponController: {fileID: 8993775159370333926}
+  _shipid: {fileID: 11400000, guid: 3ac74da29a0ab7249a6b241a991416d0, type: 2}
 --- !u!114 &3185072168484008577
 MonoBehaviour:
   m_ObjectHideFlags: 0

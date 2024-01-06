@@ -271,6 +271,14 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 2087267268}
+    - target: {fileID: 3185072168484008577, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
+      propertyPath: _speed.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185072168484008577, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
+      propertyPath: _speed.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8993775159370333926, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
       propertyPath: _missileFireRateInSeconds
       value: 1

@@ -9,7 +9,7 @@ namespace Ships.Weapons
         private Ship _ship; 
         private float _remainingSecondsToBeAbleShoot;
         private float _remainingSecondsToBeAbleShootMissile;
-        [SerializeField] private float _fireRateInSeconds;
+        private float _fireRateInSeconds;
         [SerializeField] private float _missileFireRateInSeconds;
         [SerializeField] private Transform _projectileSpawnPosition;
 
@@ -24,10 +24,12 @@ namespace Ships.Weapons
             _projectileFactory = new ProjectileFactory(instance);
         }
 
-        public void Configure(Ship ship)
+        public void Configure(Ship ship, float fireRate, ProjectileId defaultProjectileId)
         {
             _ship = ship;
-            _activeProjectileId = _defaultProjectileId.Value;
+            _activeProjectileId = defaultProjectileId.Value;
+            _fireRateInSeconds = fireRate;
+            
         }
         internal void TryShoot()
         {

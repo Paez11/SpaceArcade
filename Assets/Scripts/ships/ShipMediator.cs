@@ -18,11 +18,11 @@ namespace Ships
         public string Id => _shipid.Value;
         private Input _input;
 
-        public void Configure(Input input, CheckLimit checkLimits)
+        public void Configure(Input input, CheckLimit checkLimits, Vector2 speed, float fireRate, ProjectileId defaultProjectileId)
         {
             _input = input;
-            _movementController.Configure(this, checkLimits);
-            _weaponController.Configure(this);
+            _movementController.Configure(this, checkLimits, speed);
+            _weaponController.Configure(this, fireRate, defaultProjectileId);
         }
 
         // Update is called once per frame

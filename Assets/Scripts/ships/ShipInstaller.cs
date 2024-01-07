@@ -3,6 +3,7 @@ using Inputs;
 using Input = Inputs.Input;
 using Ships.CheckLimits;
 using UnityEngine;
+using Ships.Enemies;
 
 namespace Ships
 {
@@ -14,9 +15,11 @@ namespace Ships
         [SerializeField] private JoyButton _joybutton;
         [SerializeField] private ShipMediator _ship;
 
+        [SerializeField] private ShipToSpawnConfiguration _shipConfiguration;
+
         private void Awake() 
         {
-            _ship.Configure(GetInput(), GetCheckLimitsStrategy());
+            _ship.Configure(GetInput(), GetCheckLimitsStrategy(), _shipConfiguration.Speed, _shipConfiguration.FireRate, _shipConfiguration.DefaultProjectileId);
         }
 
         private CheckLimit GetCheckLimitsStrategy()

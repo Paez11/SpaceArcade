@@ -14,10 +14,11 @@ namespace Ships
         {
             _myTransform = transform;
         }
-        public void Configure(Ship ship, CheckLimit checkLimits)
+        public void Configure(Ship ship, CheckLimit checkLimits, Vector2 speed)
         {
             _ship = ship;
-            _checkLimits = checkLimits; 
+            _checkLimits = checkLimits;
+            _speed = speed;
         }
 
         public void Move(Vector2 direction)

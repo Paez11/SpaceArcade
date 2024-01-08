@@ -4,6 +4,7 @@ using Input = Inputs.Input;
 using Ships.CheckLimits;
 using UnityEngine;
 using Ships.Enemies;
+using Ships.Common;
 
 namespace Ships
 {
@@ -16,32 +17,46 @@ namespace Ships
         [SerializeField] private ShipMediator _ship;
 
         [SerializeField] private ShipToSpawnConfiguration _shipConfiguration;
+        [SerializeField] private ShipsConfiguration _shipsConfiguration;
 
         private void Awake() 
         {
-            _ship.Configure(GetInput(), GetCheckLimitsStrategy(), _shipConfiguration.Speed, _shipConfiguration.FireRate, _shipConfiguration.DefaultProjectileId);
+            var shipFactory = new ShipFactory(Instantiate(_shipsConfiguration));
+            var shipBuilder = shipFactory.Create(_shipConfiguration.ShipId.Value).WithConfiguration(_shipConfiguration);
+            
+            SetInput(shipBuilder);
+            SetCheckLimitsStrategy(shipBuilder);
+            shipBuilder.Build();
         }
 
-        private CheckLimit GetCheckLimitsStrategy()
-        {
-            if(_useIA)
-                return new InitialPositionCheckLimits(_ship.transform, 10f);
-            return new ViewportCheckLimits(_ship.transform, Camera.main);
-        }
-
-        private Input GetInput()
+        private void SetCheckLimitsStrategy(ShipBuilder shipBuilder)
         {
             if(_useIA)
             {
-                return new AIInputAdapter(_ship);
+                shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.InitialPosition);
+                return;
+            }
+            shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.ViewPort);
+        }
+
+        private void SetInput(ShipBuilder shipBuilder)
+        {
+            if(_useIA)
+            {
+                shipBuilder.WithInputMode(ShipBuilder.InputMode.Ai);
+                return;
             }
             if(_useJoystick)
             {
-                return new JoystickInputAdapter(_joystick, _joybutton);
+                shipBuilder.WithInputMode(ShipBuilder.InputMode.Joystick);
+                shipBuilder.WithJoysticks(_joystick, _joybutton);
+                return;
             }
+
+            shipBuilder.WithInputMode(ShipBuilder.InputMode.Unity);
+
             Destroy(_joystick.gameObject);
             Destroy(_joybutton.gameObject);
-            return new UnityInputAdapter();
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ships
+namespace Ships.Common
 {
     public class ShipFactory
     {
@@ -11,10 +11,10 @@ namespace Ships
             _configuration = configuration;
         }
 
-        public ShipMediator Create(string id, Vector3 position, Quaternion rotation)
+        public ShipBuilder Create(string id)
         {
             var prefab = _configuration.GetShipId(id);
-            return Object.Instantiate(prefab, position, rotation);
+            return new ShipBuilder().FromPrefab(prefab);
         }
     }
 }

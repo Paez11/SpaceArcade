@@ -215,90 +215,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1167965366
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 356665547396791458, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_Name
-      value: Ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852543394539952809, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291852561128209322, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: _joystick
-      value: 
-      objectReference: {fileID: 2087267268}
-    - target: {fileID: 3185072168484008577, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: _speed.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185072168484008577, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: _speed.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8993775159370333926, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-      propertyPath: _missileFireRateInSeconds
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
---- !u!114 &1167965367 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2291852561128209322, guid: 1a148315a7366f946ba96f89510c294d, type: 3}
-  m_PrefabInstance: {fileID: 1167965366}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6515ca846bfe05d4086f694ccb54ec11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1303338380
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +552,9 @@ MonoBehaviour:
   _useJoystick: 0
   _joystick: {fileID: 2087267268}
   _joybutton: {fileID: 1765891763}
-  _ship: {fileID: 1167965367}
+  _ship: {fileID: 0}
   _shipConfiguration: {fileID: 11400000, guid: 325eab1e00087dc45a1cc8793dd8f8ba, type: 2}
+  _shipsConfiguration: {fileID: 11400000, guid: 74bfd3f5c39134c4a81023dc800feec2, type: 2}
 --- !u!4 &1631078546
 Transform:
   m_ObjectHideFlags: 0
@@ -884,7 +801,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1167965366}
   - {fileID: 1620991717}
   - {fileID: 1303338383}
   - {fileID: 1631078546}

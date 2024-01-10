@@ -33,7 +33,7 @@ namespace Inputs
 
         public bool IsMissileActionPressed()
         {
-            throw new System.NotImplementedException();
+            return false;
         }
     }
 }

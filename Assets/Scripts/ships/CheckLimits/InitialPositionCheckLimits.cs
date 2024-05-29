@@ -14,25 +14,21 @@ namespace Ships.CheckLimits
             _initialPosition = _transform.position;
             _maxDistance = maxDistance;
         }
-        public void ClampFinalPosition()
+        public Vector2 ClampFinalPosition(Vector2 currentPosition)
         {
-            var currentPosition = _transform.position;
             var finalPosition = currentPosition;
             var distance = Mathf.Abs(currentPosition.x - _initialPosition.x);
             if(distance <= _maxDistance)
-                return;
-            if(distance > _maxDistance)
+                return currentPosition;
+            if(currentPosition.x > _initialPosition.x)
             {
-                if(currentPosition.x > _initialPosition.x)
-                {
-                   finalPosition.x = _initialPosition.x + _maxDistance;
-                }
-                else
-                {
-                    finalPosition.x = _initialPosition.x - _maxDistance;
-                }
-                _transform.position = finalPosition;
+                finalPosition.x = _initialPosition.x + _maxDistance;
             }
+            else
+            {
+                finalPosition.x = _initialPosition.x - _maxDistance;
+            }
+            return finalPosition;
         }
     }
 }

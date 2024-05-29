@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Ships.Common;
 using UnityEngine;
 
 namespace Ships.Weapons
@@ -17,6 +18,7 @@ namespace Ships.Weapons
         [SerializeField] private ProjectileId _defaultProjectileId;
         private ProjectileFactory _projectileFactory;
         [SerializeField] private ProjectilesConfiguration _projectileConfiguration;
+        private Teams _team;
 
         private void Awake() 
         {
@@ -24,11 +26,12 @@ namespace Ships.Weapons
             _projectileFactory = new ProjectileFactory(instance);
         }
 
-        public void Configure(Ship ship, float fireRate, ProjectileId defaultProjectileId)
+        public void Configure(Ship ship, float fireRate, ProjectileId defaultProjectileId, Teams team)
         {
             _ship = ship;
             _activeProjectileId = defaultProjectileId.Value;
             _fireRateInSeconds = fireRate;
+            _team = team;
             
         }
         internal void TryShoot()
@@ -54,7 +57,7 @@ namespace Ships.Weapons
 
         private void Shoot()
         {
-            var projectile = _projectileFactory.Create(_activeProjectileId, _projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
+            var projectile = _projectileFactory.Create(_activeProjectileId, _projectileSpawnPosition.position, _projectileSpawnPosition.rotation, _team);
             _remainingSecondsToBeAbleShoot = _fireRateInSeconds;
         }
     }

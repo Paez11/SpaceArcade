@@ -25,7 +25,9 @@ namespace Ships
         private void Awake() 
         {
             var shipFactory = new ShipFactory(Instantiate(_shipsConfiguration));
-            _shipBuilder = shipFactory.Create(_shipConfiguration.ShipId.Value).WithConfiguration(_shipConfiguration);
+            _shipBuilder = shipFactory.Create(_shipConfiguration.ShipId.Value)
+            .WithTeam(Teams.Ally)
+            .WithConfiguration(_shipConfiguration);
             
             SetInput(_shipBuilder);
             SetCheckLimitsStrategy(_shipBuilder);
@@ -43,12 +45,16 @@ namespace Ships
 
         private void SetCheckLimitsStrategy(ShipBuilder shipBuilder)
         {
+            shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.InitialPosition);
+            return;
+            /*
             if(_useIA)
             {
-                shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.InitialPosition);
+                //shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.InitialPosition);
                 return;
             }
             shipBuilder.WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.ViewPort);
+            */
         }
 
         private void SetInput(ShipBuilder shipBuilder)

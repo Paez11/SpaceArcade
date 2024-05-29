@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2291852561128209322}
   - component: {fileID: 3185072168484008577}
   - component: {fileID: 8993775159370333926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd76e9dce846c43428218df1629a1bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRateInSeconds: 0.3
   _missileFireRateInSeconds: 2
   _projectileSpawnPosition: {fileID: 956289037175133685}
   _defaultProjectileId: {fileID: 11400000, guid: b66130ae919a4e045998ff33ff3e7c93, type: 2}
@@ -143,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956289037175133685}
   - component: {fileID: 7859547530695986401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

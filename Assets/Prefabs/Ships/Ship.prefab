@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 2291852561128209322}
   - component: {fileID: 3185072168484008577}
   - component: {fileID: 8993775159370333926}
-  m_Layer: 0
+  - component: {fileID: -7475018921997320307}
+  - component: {fileID: -2053755968415359221}
+  - component: {fileID: -8635242988723110652}
+  m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 3185072168484008577}
   _weaponController: {fileID: 8993775159370333926}
+  _healthController: {fileID: -7475018921997320307}
   _shipid: {fileID: 11400000, guid: 3ac74da29a0ab7249a6b241a991416d0, type: 2}
 --- !u!114 &3185072168484008577
 MonoBehaviour:
@@ -115,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757d20b599317f44eb858608a4fe308e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: {x: 0, y: 0}
 --- !u!114 &8993775159370333926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,11 +132,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd76e9dce846c43428218df1629a1bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRateInSeconds: 0.3
   _missileFireRateInSeconds: 2
   _projectileSpawnPosition: {fileID: 956289037175133685}
   _defaultProjectileId: {fileID: 11400000, guid: b66130ae919a4e045998ff33ff3e7c93, type: 2}
   _projectileConfiguration: {fileID: 11400000, guid: e7585eb756a373841b9b10eb72d6c5e0, type: 2}
+--- !u!114 &-7475018921997320307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356665547396791458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b428a4c22c39444a94ad1e5b74de9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-2053755968415359221
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356665547396791458}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &-8635242988723110652
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356665547396791458}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &6893481355326610467
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956289037175133685}
   - component: {fileID: 7859547530695986401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

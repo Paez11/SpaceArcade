@@ -72,6 +72,7 @@ namespace Ships.Enemies
                     .WithPosition(spawnPosition.position)
                     .WithRotation(spawnPosition.rotation)
                     .WithCheckLimitTypes(ShipBuilder.CheckLimitTypes.InitialPosition)
+                    .WithTeam(Teams.Enemy)
                     .WithConfiguration(shipConfiguration).Build();
                 _spawnedShips.Add(ship);
             }
